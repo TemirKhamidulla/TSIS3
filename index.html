@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CFO Assistant</title>
+<style>
+body{
+font-family:Arial;
+background:#f4f6f8;
+text-align:center;
+padding:40px;
+}
+
+.container{
+background:white;
+padding:30px;
+border-radius:10px;
+width:300px;
+margin:auto;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+input{
+width:90%;
+padding:10px;
+margin:10px;
+}
+
+button{
+padding:10px 20px;
+background:#2563eb;
+color:white;
+border:none;
+border-radius:5px;
+}
+
+.result{
+margin-top:20px;
+font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>CFO Assistant</h2>
+<p>Simple Financial Analysis Tool</p>
+
+<input id="revenue" placeholder="Revenue">
+
+<input id="expenses" placeholder="Expenses">
+
+<br>
+
+<button onclick="analyze()">Analyze</button>
+
+<div class="result" id="result"></div>
+
+</div>
+
+<script>
+
+function analyze(){
+
+let revenue = document.getElementById("revenue").value
+let expenses = document.getElementById("expenses").value
+
+revenue = Number(revenue)
+expenses = Number(expenses)
+
+let profit = revenue - expenses
+
+let text = ""
+
+if(profit > 0){
+text = "Profit: $" + profit
+}
+else if(profit < 0){
+text = "Loss: $" + profit
+}
+else{
+text = "Break Even"
+}
+
+document.getElementById("result").innerText = text
+
+}
+
+</script>
+
+</body>
+</html>
